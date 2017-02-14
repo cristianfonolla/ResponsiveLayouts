@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    body {
+        margin: 0px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .container div{
+        box-sizing: border-box;
+        min-height: 150px;
+    }
+
+    .c1,.c3 {
+        position: absolute;
+        width: 250px;
+        height: 100%;
+    }
+
+    .c3 {
+        left: 100%;
+        z-index: 1;
+    }
+
+    .c1 {
+        background-color: red;
+        transform: translate(-250px,0);
+
+        transition: transform 0.4s ease-out;
+        z-index: 1;
+    }
+
+    .c1.open {
+        transform: translate(0,0);
+    }
+
+    .c2 {
+        background-color: blue;
+    }
+
+    .c3 {
+        background-color: greenyellow;
+        transform: translate(0,0);
+
+    }
+
+    .c3.open {
+        transform: translate(-250px,0);
+    }
+</style>
+
+<div class="container">
+    <div class="c1" role="leftsidebar" id="left">A</div>
+
+    <div class="c2" role="main">
+        <input type="button" value="open" onclick="window.open()" id="leftMenuButton">
+        <input type="button" value="close" onclick="window.close()" id="leftMenuButton2">
+    </div>
+    <div class="c3" role="rightsidebar" id="rigth">C</div>
+</div>
+
+<script>
+
+    function open() {
+        var left = document.getElementById('left');
+        //Drawer
+        left.classList.add('open');
+    }
+
+    function close() {
+        var left = document.getElementById('left');
+        //Drawer
+        left.classList.remove('open');
+    }
+
+    //var leftMenuButton = document.getElementById('leftMenuButton');
+    //leftMenuButton.addEventListener("click", open)
+    console.log(left);
+
+
+
+</script>
+
+</body>
+</html>
